@@ -5,17 +5,26 @@ public class C {
         Scanner scanner = new Scanner(System.in);
         long A = scanner.nextLong();
         long R = scanner.nextLong();
-        int N = scanner.nextInt();
+        long N = scanner.nextLong();
 
-        long[] a = new long[N];
+        long value;
 
-        for (int i = 0; i < N; i++) {
-            a[i] = A*(long)Math.pow(R,i);
+        if (R == 1) {
+            System.out.println(A);
+            System.exit(0);
         }
 
-        if (a[N-1] <= (long)Math.pow(10,9))
-            System.out.println(a[N-1]);
-        else {
+        if (N >= 31) {
+            System.out.println("large");
+            System.exit(0);
+        }
+
+
+        value = A * (long) Math.pow(R, N-1);
+
+        if (value <= (long) Math.pow(10, 9)) {
+            System.out.println(value);
+        } else {
             System.out.println("large");
         }
     }
